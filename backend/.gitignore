@@ -1,0 +1,5 @@
+/target
+.env
+hls_output/
+*.ts
+!src/**/*.ts
