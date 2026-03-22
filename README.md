@@ -5,13 +5,13 @@ Hệ thống kết nối đến đầu thu Hikvision DVR bằng RTSP channel tĩ
 ## Architecture
 
 ```
-┌─────────────────┐     RTSP stream       ┌─────────────────┐
+┌─────────────────┐     RTSP stream        ┌─────────────────┐
 │  Hikvision DVR  │ ─────────────────────▶ │  Rust Backend   │
 │  Camera 1..N    │                        │  (axum + ffmpeg)│
 └─────────────────┘          │             └────────┬────────┘
                       ┌──────▼─────┐                │ REST API
                       │  ffmpeg    │                │ + WebSocket
-                      │ image2pipe │── JPEG ──────▶│   MJPEG
+                      │ image2pipe │── JPEG ──────▶ │   MJPEG
                       └────────────┘                │
                                            ┌────────┴────────┐
                                            │  Next.js        │
